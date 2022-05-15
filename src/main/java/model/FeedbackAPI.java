@@ -46,7 +46,7 @@ public class FeedbackAPI extends HttpServlet {
 												   request.getParameter("email"), 
 												   request.getParameter("rate"),
 		                                           request.getParameter("phone"),
-		                                           request.getParameter("phone"), 
+		                                           request.getParameter("comment"), 
 		                                           request.getParameter("Cus_id")); 
 												   response.getWriter().write(output);
 	}

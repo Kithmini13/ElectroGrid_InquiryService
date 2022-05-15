@@ -29,7 +29,7 @@ $(document).on("click", "#btnSave", function(event)
 	var type = ($("#hidFeedback_idSave").val() == "") ? "POST" : "PUT"; 
 	 $.ajax( 
 	 { 
-		 url : "FeedbacksAPI", 
+		 url : "FeedbackAPI", 
 		 type : type, 
 		 data : $("#formFeedback").serialize(), 
 		 dataType : "text", 
@@ -56,7 +56,7 @@ $(document).on("click", ".btnRemove", function(event)
 { 
 	 $.ajax( 
 	 { 
-		 url : "FeedbacksAPI", 
+		 url : "FeedbackAPI", 
 		 type : "DELETE", 
 		 data : "Feedback_id=" + $(this).data("Feedback_id"),
 		 dataType : "text", 
