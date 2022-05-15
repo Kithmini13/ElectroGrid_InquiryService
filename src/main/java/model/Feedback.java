@@ -45,11 +45,12 @@ public class Feedback {
 				// execute the statement
 				preparedStmt.execute(); 
 				con.close(); 
-				output = "Inserted successfully"; 
+				String newFeedbacks = readFeedbacks(); 
+				 output = "{\"status\":\"success\", \"data\": \"" + newFeedbacks + "\"}"; 
 			} 
 			catch (Exception e) 
 			{ 
-				output = "Error while inserting the feedback."; 
+				output = "{\"status\":\"error\", \"data\": \"Error while inserting the Feedback.\"}"; 
 				System.err.println(e.getMessage()); 
 			} 
 			return output; 
@@ -95,10 +96,10 @@ public class Feedback {
 	 			output += "<td>" + Cus_id + "</td>";
 	 			// buttons
 	 			/*output += "</tr>";*/
-	 			output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
-	 					+ "<td><form method='post' action='Feedback-List.jsp'>"
-	 					+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-	 					+ "<input name='Feedaback_id' type='hidden' value='" + Feedback_id + "'>" + "</form></td></tr>"; 
+	 			output += "<td><input name='btnUpdate' type='button' value='Update' "
+	 					+ "class='btnUpdate btn btn-secondary' data-itemid='" + Feedback_id + "'></td>"
+	 					+ "<td><input name='btnRemove' type='button' value='Remove' "
+	 					+ "class='btnRemove btn btn-danger' data-itemid='" + Feedback_id + "'></td></tr>";
 	 		} 
 	 		con.close(); 
 	 		// Complete the html table
@@ -106,7 +107,7 @@ public class Feedback {
 	 	} 
 	 	catch (Exception e) 
 	 	{ 
-	 		output = "Error while reading the items."; 
+	 		output = "Error while reading the feedbacks."; 
 	 		System.err.println(e.getMessage()); 
 	 	} 
 	 	return output; 
@@ -137,11 +138,12 @@ public class Feedback {
 				// execute the statement
 				preparedStmt.execute(); 
 				con.close(); 
-				output = "Updated successfully"; 
+				String newFeedbacks = readFeedbacks(); 
+				 output = "{\"status\":\"success\", \"data\": \"" + newFeedbacks + "\"}"; 
 			} 
 			catch (Exception e) 
 			{ 
-				output = "Error while updating the Feedback."; 
+				 output = "{\"status\":\"error\", \"data\": \"Error while updating the feedback.\"}"; 
 				System.err.println(e.getMessage()); 
 			} 
 			return output; 
@@ -165,16 +167,16 @@ public class Feedback {
 						// execute the statement
 						preparedStmt.execute();
 						con.close();
-						output = "Feedback Deleted successfully";
-					} catch (Exception e) {
-						output = "Error while deleting the from feedback table.";
+						String newFeedbacks = readFeedbacks(); 
+						 output = "{\"status\":\"success\", \"data\": \"" + newFeedbacks + "\"}"; 
+					} 
+					catch (Exception e) 
+					{ 
+						 output = "{\"status\":\"error\", \"data\": \"Error while deleteing the feedback.\"}"; 
 						System.err.println(e.getMessage());
 					}
 					return output;
 				}
-		
-		
-		
 
 }
 

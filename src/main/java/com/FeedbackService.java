@@ -23,7 +23,7 @@ public class FeedbackService
 {
 	Feedback feedbackObj = new Feedback();
 	@GET
-	@Path("/readfb") 
+	@Path("/") 
 	@Produces(MediaType.TEXT_HTML)
     public String readFeedbacks() 
 	{
@@ -31,7 +31,7 @@ public class FeedbackService
 	}
 	
 	@POST
-	@Path("/insertfb") 
+	@Path("/") 
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
 	@Produces(MediaType.TEXT_PLAIN) 
 	public String insertFeedback(@FormParam("Feedback_id") String Feedback_id, 
@@ -47,7 +47,7 @@ public class FeedbackService
 	}
 	
 	@PUT
-	@Path("/updatefb") 
+	@Path("/") 
 	@Consumes(MediaType.APPLICATION_JSON) 
 	@Produces(MediaType.TEXT_PLAIN) 
 	public String updateFeedback(String FeedbackData) 
@@ -68,7 +68,7 @@ public class FeedbackService
 	}
 	
 	@DELETE
-	@Path("/deletefb") 
+	@Path("/") 
 	@Consumes(MediaType.APPLICATION_XML) 
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteFeedback(String feedbackData)
